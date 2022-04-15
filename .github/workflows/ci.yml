@@ -60,7 +60,7 @@ jobs:
         shell: cmd
       
       - name: Compress
-        run: Compress-Archive -Path 'C:\gtk-build' -DestinationPath 'C:\gtk.zip'
+        run: Compress-Archive -Path 'C:\gtk-build\build\release\x64' -DestinationPath 'C:\gtk.zip'
       
       - name: Upload GTK
         uses: actions/upload-artifact@v3.0.0
