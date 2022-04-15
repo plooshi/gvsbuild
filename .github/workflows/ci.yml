@@ -60,10 +60,18 @@ jobs:
         shell: cmd
       
       - name: Compress
-        run: Compress-Archive -Path 'C:\gtk-build\build\x64\release' -DestinationPath 'C:\gtk.zip'
+        run: Compress-Archive -Path 'C:\gtk-build\gtk\x64\release' -DestinationPath 'C:\gtk.zip'
       
       - name: Upload GTK
         uses: actions/upload-artifact@v3.0.0
         with:
           name: gtk
           path: C:\gtk.zip
+      
+      - name: Cache
+        uses: actions/cache@v3.0.2
+        with:
+          # A list of files, directories, and wildcard patterns to cache and restore
+          path: C:\gtk-build
+          # An explicit key for restoring and saving the cache
+          key: 0x8a29aec27d
